@@ -75,7 +75,11 @@
   .terminal .val{ color:var(--frost); }
 
   .skill-grid{ display:flex; flex-wrap:wrap; gap:0.7rem; }
-  .tag{ font-family:'JetBrains Mono', monospace; font-size:0.82rem; padding:0.55rem 1.1rem; border:1px solid var(--border); border-radius:8px; color:var(--frost); background:var(--ink); }
+  .tag{ text-align:center;font-family:'JetBrains Mono', monospace; font-size:20px; padding:0.55rem 1.1rem; border:1px solid var(--border); border-radius:8px; color:var(--signal); background:var(--ink); }
+  .skill-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
 
   .work-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; }
   .card{ background:var(--ink); border:1px solid var(--border); border-radius:14px; padding:1.8rem; transition:transform 0.25s, border-color 0.25s; }
@@ -196,7 +200,6 @@
     line-height: 1.5;
     font-weight: 300;
 }
-
 
 
   footer{ padding:4rem 5%; text-align:center; position:relative; z-index:1; border-top:1px solid var(--border); }
@@ -320,13 +323,12 @@ I look forward to connecting with professionals, alumni, and fellow learners to 
   <div class="label reveal">// 03 SKILLS</div>
   <h2 class="reveal">What I work with</h2>
   <div class="skill-grid reveal">
-    <span class="tag">C++</span>
-    <span class="tag">Python</span>
-    <span class="tag">JavaScript</span>
-    <span class="tag">HTML</span>
-    <span class="tag">CSS</span>
-    <span class="tag">c</span>
-    <span class="tag">Linux</span>
+    <span class="tag"><i class="devicon-cplusplus-plain skill-icon" style="color: #00599C;"></i><br>C++</span>
+    <span class="tag"><i class="devicon-python-plain skill-icon" style="color: #3776AB;"></i><br>Python</span>
+    <span class="tag"><i class="devicon-javascript-plain skill-icon" style="color: #F7DF1E;"></i><br>JavaScript</span>
+    <span class="tag"><i class="devicon-html5-plain skill-icon" style="color: #E34F26;"></i><br>HTML</span>
+    <span class="tag"><i class="devicon-css3-plain skill-icon" style="color: #1572B6;"></i><br>CSS</span>
+    <span class="tag"><i class="devicon-c-plain skill-icon" style="color: #A8B9CC;"></i><br>c</span>
   </div>
 </section>
 
