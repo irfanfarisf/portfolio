@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Irfan — Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
+<link rel="stylesheet" type='text/css' href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+<style>
+  :root{
+    --void:#0B0E14;
+    --ink:#11151F;
+    --frost:#E8ECF1;
+    --slate:#7C8696;
+    --signal:#22D3EE;
+    --ember:#A3E635 ;
+    --border: rgba(232,236,241,0.08);
+    --text-primary: #ffffff;
+    --transition-smooth: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{ background:var(--void); color:var(--frost); font-family:'Inter', sans-serif; overflow-x:hidden; }
+  a{ color:inherit; text-decoration:none; }
+
+  .glow{ position:fixed; top:-20%; right:-10%; width:50vw; height:50vw;
+    background:radial-gradient(circle, rgba(110,91,255,0.25) 0%, rgba(110,91,255,0) 70%); pointer-events:none; z-index:0; }
+  .glow2{ position:fixed; bottom:-20%; left:-10%; width:40vw; height:40vw;
+    background:radial-gradient(circle, rgba(79,227,193,0.12) 0%, rgba(79,227,193,0) 70%); pointer-events:none; z-index:0; }
+
+  nav{ position:fixed; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center;
+    padding:1.5rem 5%; z-index:20; backdrop-filter:blur(8px); background:rgba(11,14,20,0.7); border-bottom:1px solid var(--border); }
+  .logo{ font-family:'JetBrains Mono', monospace; font-weight:500; letter-spacing:0.05em; font-size:1rem; }
+  .logo span{ color:var(--signal); }
+  .nav-links{ display:flex; gap:2.5rem; font-family:'JetBrains Mono', monospace; font-size:0.78rem; letter-spacing:0.08em; }
+  .nav-links a{ color:var(--slate); transition:color 0.2s; position:relative; }
+  .nav-links a::before{ content:"./"; color:var(--ember); opacity:0; transition:opacity 0.2s; }
+  .nav-links a:hover, .nav-links a.active{ color:var(--frost); }
+  .nav-links a:hover::before, .nav-links a.active::before{ opacity:1; }
+  a:focus-visible{ outline:2px solid var(--signal); outline-offset:3px; border-radius:2px; }
+
+  /* mobile hamburger */
+  .nav-toggle{ display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:0.4rem; z-index:21; }
+  .nav-toggle span{ width:22px; height:2px; background:var(--frost); transition:all 0.25s; }
+  .nav-toggle.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-toggle.open span:nth-child(2){ opacity:0; }
+  .nav-toggle.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+  .hero{ min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:0 5%; position:relative; z-index:1; }
+  .eyebrow{ font-family:'JetBrains Mono', monospace; color:var(--signal); font-size:0.85rem; letter-spacing:0.1em; margin-bottom:1.2rem; display:flex; align-items:center; gap:0.6rem; }
+  .cursor{ display:inline-block; width:8px; height:1.1em; background:var(--signal); animation:blink 1s step-end infinite; }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  h1.headline{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:clamp(2.8rem, 8vw, 6rem); line-height:1.02; letter-spacing:-0.02em; }
+  h1.headline .outline{ color:transparent; -webkit-text-stroke:1.5px var(--frost); }
+  .sub{ margin-top:1.8rem; max-width:520px; color:var(--slate); font-size:1.05rem; line-height:1.6; }
+  .cta-row{ margin-top:2.5rem; display:flex; gap:1rem; flex-wrap:wrap; }
+  .btn{ font-family:'JetBrains Mono', monospace; font-size:0.8rem; letter-spacing:0.06em; padding:0.9rem 1.6rem; border-radius:999px; border:1px solid var(--border); transition:all 0.25s; }
+  .btn-primary{ background:var(--frost); color:var(--void); }
+  .btn-primary:hover{ background:var(--signal); }
+  .btn-outline{ border-color:var(--signal); color:var(--signal); }
+  .btn-outline:hover{ background:rgba(79,227,193,0.1); }
+
+  section{ padding:7rem 5%; position:relative; z-index:1; }
+  .label{ font-family:'JetBrains Mono', monospace; color:var(--ember); font-size:0.78rem; letter-spacing:0.1em; margin-bottom:0.8rem; }
+  h2{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:clamp(1.8rem, 4vw, 2.6rem); margin-bottom:2.5rem; }
+
+  .about-grid{ display:grid; grid-template-columns:1.2fr 0.8fr; gap:3rem; align-items:start; }
+  .about-grid p{ color:var(--slate); line-height:1.8; font-size:1.02rem; margin-bottom:1rem; }
+  .terminal{ background:var(--ink); border:1px solid var(--border); border-radius:12px; padding:1.4rem; font-family:'JetBrains Mono', monospace; font-size:0.85rem; }
+  .terminal .line{ color:var(--slate); margin-bottom:0.5rem; }
+  .terminal .key{ color:var(--signal); }
+  .terminal .val{ color:var(--frost); }
+
+  .skill-grid{ display:flex; flex-wrap:wrap; gap:0.7rem; }
+  .tag{ font-family:'JetBrains Mono', monospace; font-size:0.82rem; padding:0.55rem 1.1rem; border:1px solid var(--border); border-radius:8px; color:var(--frost); background:var(--ink); }
+
+  .work-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:1.5rem; }
+  .card{ background:var(--ink); border:1px solid var(--border); border-radius:14px; padding:1.8rem; transition:transform 0.25s, border-color 0.25s; }
+  .card:hover{ transform:translateY(-4px); border-color:var(--signal); }
+  .card h3{ font-family:'Space Grotesk', sans-serif; font-size:1.2rem; margin-bottom:0.6rem; }
+  .card p{ color:var(--slate); font-size:0.92rem; line-height:1.6; margin-bottom:1rem; }
+  .card .stack{ display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem; }
+  .card .stack span{ font-family:'JetBrains Mono', monospace; font-size:0.72rem; color:var(--ember); }
+  .card .links a{ font-family:'JetBrains Mono', monospace; font-size:0.78rem; color:var(--signal); margin-right:1.2rem; }
+  .card .links a:hover{ text-decoration:underline; }
+
+   .ach-list{ display:flex; flex-direction:column; gap:1.2rem; }
+.ach-item{ padding-bottom:1.2rem; border-bottom:1px solid var(--border); cursor:pointer; outline:none; }
+.ach-header{ display:flex; justify-content:space-between; align-items:baseline; }
+.ach-item h4{ font-family:'Space Grotesk', sans-serif; font-size:1.05rem; font-weight:500; }
+.ach-item .ach-header span{ font-family:'JetBrains Mono', monospace; color:var(--slate); font-size:0.8rem; white-space:nowrap; margin-left:1rem; }
+
+.ach-details{
+  max-height:0; opacity:0; overflow:hidden;
+  transition: max-height 0.35s ease, opacity 0.3s ease, margin-top 0.3s ease;
+}
+.ach-org{ font-family:'JetBrains Mono', monospace; color:var(--signal); font-size:0.82rem; margin-bottom:0.4rem; }
+.ach-desc{ color:var(--slate); font-size:0.88rem; line-height:1.6; }
+
+.ach-item:hover .ach-details,
+.ach-item:focus-visible .ach-details,
+.ach-item.expanded .ach-details{
+  max-height:160px; opacity:1; margin-top:0.7rem;
+}  
+.cert-btn{
+    margin-top:0.9rem;
+    background:none; border:1px solid var(--signal); color:var(--signal);
+    font-family:'JetBrains Mono', monospace; font-size:0.72rem; letter-spacing:0.05em;
+    padding:0.5rem 1rem; border-radius:999px; cursor:pointer;
+    transition:background 0.2s, color 0.2s;
+  }
+  .cert-btn:hover, .cert-btn:focus-visible{ background:var(--signal); color:var(--void); }
+ 
+  .cert-modal{
+    display:none; position:fixed; inset:0; z-index:50;
+    background:rgba(11,14,20,0.92);
+    align-items:center; justify-content:center; padding:2rem;
+  }
+  .cert-modal.open{ display:flex; }
+  .cert-modal-content{ position:relative; max-width:90vw; max-height:90vh; }
+  .cert-modal-content img{ max-width:100%; max-height:85vh; border-radius:8px; border:1px solid var(--border); display:block; }
+  .cert-close{
+    position:absolute; top:-2.6rem; right:0; background:none; border:none;
+    color:var(--frost); font-size:2rem; line-height:1; cursor:pointer;
+  }
+  .cert-close:hover{ color:var(--signal); }
+  .about-photo{
+  width:140px; height:140px; border-radius:50%;
+  border:3px solid var(--signal);
+  margin-bottom:1.5rem;
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:2.2rem;
+  color:var(--signal);
+  background:var(--ink);
+  overflow:hidden; /* clips a real <img> placed inside to a circle */
+}
+.about-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 4rem;
+    padding-left: 2rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+#about {
+    padding-bottom: 1rem;
+    /* Significantly reduced */
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.55rem;
+    /* Precise alignment with 1px border */
+    top: 6px;
+    /* Visual center with year text */
+    width: 12px;
+    height: 12px;
+    background: var(--bg-color);
+    border: 2px solid var(--signal);
+    border-radius: 50%;
+    z-index: 2;
+    transition: var(--transition-smooth);
+}
+
+.timeline-item:hover::before {
+    background: var(--signal);
+    box-shadow: 0 0 15px var(--signal);
+    transform: scale(1.2);
+}
+
+.timeline-year {
+    font-size: 1rem;
+    color: var(--signal);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: block;
+    line-height: 1;
+}
+
+.timeline-content {
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+    font-weight: 300;
+}
+
+
+
+  footer{ padding:4rem 5%; text-align:center; position:relative; z-index:1; border-top:1px solid var(--border); }
+  footer h2{ margin-bottom:1rem; }
+  footer p{ color:var(--slate); margin-bottom:2rem; }
+  .socials{ display:flex; gap:1.5rem; justify-content:center; font-family:'JetBrains Mono', monospace; font-size:0.85rem; }
+  .socials a{ color:var(--frost); }
+  .socials a:hover{ color:var(--signal); }
+
+  .contact-form{ max-width:480px; margin:0 auto 2.5rem; display:flex; flex-direction:column; gap:1.1rem; text-align:left; }
+  .form-group{ display:flex; flex-direction:column; gap:0.4rem; }
+  .form-group label{ font-family:'JetBrains Mono', monospace; font-size:0.75rem; color:var(--slate); letter-spacing:0.05em; }
+  .form-group input, .form-group textarea{
+    background:var(--ink); border:1px solid var(--border); border-radius:8px;
+    padding:0.8rem 1rem; color:var(--frost); font-family:'Inter', sans-serif; font-size:0.95rem;
+    resize:vertical;
+  }
+  .form-group input:focus, .form-group textarea:focus{ outline:none; border-color:var(--signal); }
+  .contact-form .btn{ align-self:flex-start; cursor:pointer; }
+  .form-status{ font-family:'JetBrains Mono', monospace; font-size:0.8rem; min-height:1.2em; }
+  .form-status.success{ color:var(--signal); }
+  .form-status.error{ color:#ff6b6b; }
+  .divider-text{ font-family:'JetBrains Mono', monospace; color:var(--slate); font-size:0.75rem; margin-bottom:1.5rem; }
+
+  /* scroll-reveal */
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible{ opacity:1; transform:none; }
+
+  @media (prefers-reduced-motion: reduce){
+    .cursor{ animation:none; }
+    .reveal{ transition:none; opacity:1; transform:none; }
+  }
+
+  @media (max-width: 768px){
+    .nav-toggle{ display:flex; }
+    .nav-links{
+      position:fixed; top:0; right:0; height:100vh; width:70%; max-width:300px;
+      background:var(--ink); flex-direction:column; gap:2rem;
+      padding:6rem 2rem; transform:translateX(100%); transition:transform 0.3s ease;
+      border-left:1px solid var(--border);
+    }
+    .nav-links.open{ transform:translateX(0); }
+    .about-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+<div class="glow2"></div>
+
+<nav>
+  <div class="logo"><span>IRFAN FARIS F</span></div>
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#work">Work</a>
+    <a href="#achievements">Achievements</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<section class="hero" id="home">
+  <h1 class="headline">BUILT FROM<br><span class="outline">FIRST PRINCIPLES</span></h1>
+  <p class="sub">Second-year CSE student who likes turning rough ideas into working software</p>
+  <div class="cta-row">
+    <a href="#about" class="btn btn-primary">Explore</a>
+    <a href="resume.pdf" class="btn btn-outline">RESUME</a>
+  </div>
+</section>
+
+<section id="about">
+  <div class="label reveal">// 01 ABOUT</div>
+  <h2 class="reveal">A bit about me</h2>
+  <div class="about-grid">
+    <div class="reveal">
+     <div class="about-photo"><img src="photo.jpg" alt="Photo of Irfan"></div>
+      <p>Hi! I’m currently pursuing my B.Tech in Computer Science and Engineering at NSS College of Engineering, Palakkad. As a first-year student, I’m eager to explore different areas of technology—from coding and app development to cybersecurity and AI etc.
+
+I enjoy learning, problem-solving, and working on projects that challenge me to grow. My current focus is on buliding my programming skills in Python,C,Java and other, while also exploring web development.
+
+I look forward to connecting with professionals, alumni, and fellow learners to share knowledge and opportunities.</p>
+      <p>Outside of coursework, I spend time on personal projects, competitive programming, and figuring out how good software actually feels to use.</p>
+   
+    </div>
+    <br>
+    <div class="terminal reveal">
+      <div class="line"><span class="key">Name</span>: <span class="val">Irfan Faris F</span></div>
+      <div class="line"><span class="key">Year</span>: <span class="val">2nd year, B.Tech CSE @NSS College of Engineering</span></div>
+      <div class="line"><span class="key">Focus</span>: <span class="val">"Web development"</span></div>
+   </div>
+</section>
+<section id="education">
+  <div class="label reveal">// 02 EDUCATION</div>
+  <h2 class="reveal">My Qualification</h2>
+  <div class="timeline">
+         <div class="timeline-line"></div>
+         <div class="timeline-item">
+         <span class="timeline-year">2025-Present</span>
+         <p class="timeline-content">NSS COLLEGE OG ENGINEERING, PALAKKAD</p>
+         <p>Bachelor of Technology - BTech, Computer Science and Engineering</p> 
+         </div>
+         <div class="timeline-item">
+         <span class="timeline-year">2025</span>
+         <p class="timeline-content">PULIYAPARAMB HSS, PALAKKAD</p>
+         <p>12th Kerala Board,Computer Science,98.9%</p>
+         </div>
+         <div class="timeline-item">
+         <span class="timeline-year">2023</span>
+         <p class="timeline-content">PULIYAPARAMB HSS, PALAKKAD</p>
+         <p>10th Kerala Board,100%</p>
+         </div>
+    </div>
+</section>
+<section id="skills">
+  <div class="label reveal">// 03 SKILLS</div>
+  <h2 class="reveal">What I work with</h2>
+  <div class="skill-grid reveal">
+    <span class="tag">C++</span>
+    <span class="tag">Python</span>
+    <span class="tag">JavaScript</span>
+    <span class="tag">HTML</span>
+    <span class="tag">CSS</span>
+    <span class="tag">c</span>
+    <span class="tag">Linux</span>
+  </div>
+</section>
+
+<section id="work">
+  <div class="label reveal">// 04 WORK</div>
+  <h2 class="reveal">Selected projects</h2>
+  <div class="work-grid">
+    <div class="card reveal">
+      <h3>Project One</h3>
+      <p>#Not yet</p>
+      <div class="stack"><span>#</span><span>#</span><span>#</span></div>
+      <div class="links"><a href="#">Live ↗</a><a href="#">GitHub ↗</a></div>
+    </div>
+    <div class="card reveal">
+      <h3>Project Two</h3>
+      <p>#Not yet</p>
+      <div class="stack"><span>#</span><span>#</span></div>
+      <div class="links"><a href="#">Live ↗</a><a href="#">GitHub ↗</a></div>
+    </div>
+    <div class="card reveal">
+      <h3>Project Three</h3>
+      <p>#Not yet</p>
+      <div class="stack"><span>#</span><span>#</span></div>
+      <div class="links"><a href="#">Live ↗</a><a href="#">GitHub ↗</a></div>
+    </div>
+  </div>
+</section>
+
+<section id="achievements">
+  <div class="label reveal">// 05 ACHIEVEMENTS</div>
+  <h2 class="reveal">Milestones</h2>
+  <div class="ach-list">
+    <div class="ach-item reveal" tabindex="0">
+  <div class="ach-header">
+    <h4>Reliance Foundation Sholarship</h4>
+    <span> MAR 2026</span>
+  </div>
+  <div class="ach-details">
+    <div class="ach-org">Reliance Foundation</div>
+    <p class="ach-desc">Selected as a recipient of the Reliance Foundation Undergraduate Scholarship, awarded to meritorious students across India based on academic excellence and financial need</p>
+    <button class="cert-btn" data-cert="#" data-alt="Reliance Foundation ">SHOW CERTIFICATE</button>
+  </div>
+</div>
+   <div class="ach-item reveal" tabindex="0">
+  <div class="ach-header">
+    <h4>3rd Prize-PyWARS Python Coding Compitition</h4>
+    <span> FEB 2026</span>
+  </div>
+  <div class="ach-details">
+    <div class="ach-org">ACM NSSCE</div>
+    <p class="ach-desc"> I secured 3rd place in PYWARS - Python Coding Competition, organized by the ACM NSSCE Student Chapter at NSS College of Engineering, Palakkad!</p>
+  <button class="cert-btn" data-cert="pywars_certificate.png" data-alt="Certification certificate">SHOW CERTIFICATE</button>
+  </div>
+</div>
+<div class="ach-item reveal" tabindex="0">
+      <div class="ach-header">
+        <h4>3rd Prize-Blind Coding Competetion</h4>
+        <span>MAR 2026</span>
+      </div>
+      <div class="ach-details">
+        <div class="ach-org">STACS NSSCE</div>
+        <p class="ach-desc">Secured Third Prize in Blind Coding Competition held as part of SOLASTA '26 by 
+STACS NSSCE on 8th  March 2026.</p>
+        <button class="cert-btn" data-cert="IRFAN FARIS.jpg" data-alt="Certification certificate">SHOW CERTIFICATE</button>
+      </div>
+    </div>
+  </div>
+</section>
+<footer id="contact">
+  <h2>Let's Connect</h2>
+  <p>Open to internships, collaborations, and interesting problems.</p>
+
+  <!-- Replace YOUR_FORM_ID below with your own Formspree form ID (free at formspree.io) -->
+  <form class="contact-form" id="contactForm" action="https://formspree.io/f/xvzjagjo" method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+    <p class="form-status" id="formStatus" role="status"></p>
+  </form>
+
+  <p class="divider-text">or reach me directly —</p>
+
+  <div class="socials">
+    <a href="https://www.instagram.com/farisbinfaizal?igsh=eWZ1Mzc4OXhlbnlk">Instagram</a>
+    <a href="https://github.com/irfanfarisf">GitHub</a>
+    <a href="www.linkedin.com/in/irfan-faris-f-159b04365">LinkedIn</a>
+  </div>
+</footer>
+<div class="cert-modal" id="certModal">
+  <div class="cert-modal-content">
+    <button class="cert-close" id="certClose" aria-label="Close certificate">&times;</button>
+    <img id="certImage" src="" alt="">
+  </div>
+</div>
+<script>
+  // ---------- 1. mobile menu toggle ----------
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    navToggle.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  // close mobile menu after clicking a link
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      navToggle.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // ---------- 2. scroll-reveal animation ----------
+ const revealItems = document.querySelectorAll('.reveal');
+
+function revealOnScroll() {
+  revealItems.forEach(item => {
+    if (item.classList.contains('visible')) return; // already shown, skip
+    const rect = item.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.9) {
+      item.classList.add('visible');
+    }
+  });
+}
+
+let scrollTicking = false;
+window.addEventListener('scroll', () => {
+  if (!scrollTicking) {
+    requestAnimationFrame(() => {
+      revealOnScroll();
+      scrollTicking = false;
+    });
+    scrollTicking = true;
+  }
+});
+
+revealOnScroll(); // run once immediately for content already in view on load
+
+// ---------- achievement cards: tap/click to expand (hover handles desktop) ----------
+document.querySelectorAll('.ach-item').forEach(item => {
+  item.addEventListener('click', () => item.classList.toggle('expanded'));
+});
+  // ---------- 3. active nav link while scrolling ----------
+  const sections = document.querySelectorAll('section, footer');
+  const navAnchors = document.querySelectorAll('.nav-links a');
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navAnchors.forEach(a => a.classList.remove('active'));
+        const match = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (match) match.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-50% 0px -50% 0px' }); // triggers when section crosses middle of viewport
+
+  sections.forEach(sec => sectionObserver.observe(sec));
+
+  // ---------- 4. contact form submission ----------
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    formStatus.textContent = 'Sending...';
+    formStatus.className = 'form-status';
+
+    const formData = new FormData(contactForm);
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        formStatus.textContent = "Message sent — I'll get back to you soon.";
+        formStatus.classList.add('success');
+        contactForm.reset();
+      } else {
+        throw new Error('Submission failed');
+      }
+    } catch (err) {
+      formStatus.textContent = 'Something went wrong. Try emailing me directly instead.';
+      formStatus.classList.add('error');
+    }
+  });
+
+  const certModal = document.getElementById('certModal');
+  const certImage = document.getElementById('certImage');
+  const certClose = document.getElementById('certClose');
+ 
+  function openCertModal(src, alt){
+    certImage.src = src;
+    certImage.alt = alt || 'Certificate';
+    certModal.classList.add('open');
+  }
+  function closeCertModal(){
+    certModal.classList.remove('open');
+    certImage.src = '';
+  }
+ 
+  document.querySelectorAll('.cert-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation(); // don't also trigger the achievement card's expand/collapse
+      openCertModal(btn.dataset.cert, btn.dataset.alt);
+    });
+  });
+ 
+  certClose.addEventListener('click', closeCertModal);
+  certModal.addEventListener('click', (e) => {
+    if (e.target === certModal) closeCertModal(); // click outside the image closes it
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeCertModal();
+  });
+</script>
+
+</body>
+</html>
