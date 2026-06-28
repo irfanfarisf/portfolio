@@ -88,7 +88,7 @@
     margin-bottom: 1rem;
   }
 
-  .work-grid{  display:flex; flex-direction:column; gap:1.2rem;}
+  .work-grid{ display:flex; flex-direction:column; gap:1.2rem;}
   .card{ background:var(--ink); border:1px solid var(--border); border-radius:14px; transition:transform 0.25s, border-color 0.25s; 
    display: flex;
    justify-content: space-between;
@@ -96,7 +96,7 @@
    overflow: hidden;
    padding: 0;
    height: 180px;
-   width:50%}
+   width: 100%;}
   .card:hover{ transform:translateY(-4px); border-color:var(--signal); }
   .card-info {
     flex: 1;
@@ -125,16 +125,26 @@
   .card:hover .card-image img {
     transform: scale(1.06);
   }
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     .card {
         flex-direction: column;
         height: auto;
+        width: 100%;
+    }
+    .card-info {
+        padding: 1.2rem;
     }
     .card-image {
-        height: 130px;
-        clip-path: polygon(0 15%, 100% 0%, 100% 100%, 0% 100%);
+        height: 160px;
+        clip-path: polygon(0 12%, 100% 0%, 100% 100%, 0% 100%);
+        flex: unset;
     }
-}
+    .card:hover .card-image {
+        flex: unset;
+    }
+    .card h3{ font-size:1.3rem; }
+    .card p{ font-size:0.92rem; }
+  }
   .card h3{ font-family:'Space Grotesk', sans-serif; font-size:1.6rem; margin-bottom:0.3rem; }
   .card p{ color:var(--slate); font-size:1rem; line-height:1.5; margin-bottom:0.6rem; }
   .card .stack{ display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.6rem; }
@@ -294,6 +304,7 @@
     }
     .nav-links.open{ transform:translateX(0); }
     .about-grid{ grid-template-columns:1fr; }
+    section{ padding:4rem 5%; }
   }
 </style>
 </head>
