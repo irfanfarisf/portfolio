@@ -4,6 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Irfan — Portfolio</title>
+<meta name="description" content="Irfan Faris F — second-year B.Tech CSE student portfolio featuring projects, skills, and achievements in web development and programming.">
+<meta property="og:title" content="Irfan Faris F — Portfolio">
+<meta property="og:description" content="Second-year CSE student building real projects in web development, Python, and C++.">
+<meta property="og:image" content="https://irfanfarisf.github.io/portfolio/photo.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://irfanfarisf.github.io/portfolio/">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0E14'/%3E%3Ctext x='32' y='43' font-family='Arial, sans-serif' font-weight='700' font-size='26' fill='%23E8ECF1' text-anchor='middle'%3EIF%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet" />
@@ -172,7 +179,7 @@
     /* Visual center with year text */
     width: 12px;
     height: 12px;
-    background: var(--bg-color);
+    background: var(--void);
     border: 2px solid var(--signal);
     border-radius: 50%;
     z-index: 2;
@@ -296,23 +303,24 @@ I look forward to connecting with professionals, alumni, and fellow learners to 
       <div class="line"><span class="key">Year</span>: <span class="val">2nd year, B.Tech CSE @NSS College of Engineering</span></div>
       <div class="line"><span class="key">Focus</span>: <span class="val">"Web development"</span></div>
    </div>
+  </div>
 </section>
 <section id="education">
   <div class="label reveal">// 02 EDUCATION</div>
   <h2 class="reveal">My Qualification</h2>
   <div class="timeline">
          <div class="timeline-line"></div>
-         <div class="timeline-item">
+         <div class="timeline-item reveal">
          <span class="timeline-year">2025-Present</span>
          <p class="timeline-content">NSS COLLEGE OG ENGINEERING, PALAKKAD</p>
          <p>Bachelor of Technology - BTech, Computer Science and Engineering</p> 
          </div>
-         <div class="timeline-item">
+         <div class="timeline-item reveal">
          <span class="timeline-year">2025</span>
          <p class="timeline-content">PULIYAPARAMB HSS, PALAKKAD</p>
          <p>12th Kerala Board,Computer Science,98.9%</p>
          </div>
-         <div class="timeline-item">
+         <div class="timeline-item reveal">
          <span class="timeline-year">2023</span>
          <p class="timeline-content">PULIYAPARAMB HSS, PALAKKAD</p>
          <p>10th Kerala Board,100%</p>
@@ -328,7 +336,7 @@ I look forward to connecting with professionals, alumni, and fellow learners to 
     <span class="tag"><i class="devicon-javascript-plain skill-icon" style="color: #F7DF1E;"></i><br>JavaScript</span>
     <span class="tag"><i class="devicon-html5-plain skill-icon" style="color: #E34F26;"></i><br>HTML</span>
     <span class="tag"><i class="devicon-css3-plain skill-icon" style="color: #1572B6;"></i><br>CSS</span>
-    <span class="tag"><i class="devicon-c-plain skill-icon" style="color: #A8B9CC;"></i><br>c</span>
+    <span class="tag"><i class="devicon-c-plain skill-icon" style="color: #A8B9CC;"></i><br>C</span>
   </div>
 </section>
 
@@ -369,7 +377,7 @@ I look forward to connecting with professionals, alumni, and fellow learners to 
   <div class="ach-details">
     <div class="ach-org">Reliance Foundation</div>
     <p class="ach-desc">Selected as a recipient of the Reliance Foundation Undergraduate Scholarship, awarded to meritorious students across India based on academic excellence and financial need</p>
-    <button class="cert-btn" data-cert="#" data-alt="Reliance Foundation ">SHOW CERTIFICATE</button>
+    <button class="cert-btn" data-cert="reliance_certificate.jpg" data-alt="Reliance Foundation Scholarship certificate">SHOW CERTIFICATE</button>
   </div>
 </div>
    <div class="ach-item reveal" tabindex="0">
@@ -424,7 +432,7 @@ STACS NSSCE on 8th  March 2026.</p>
   <div class="socials">
     <a href="https://www.instagram.com/farisbinfaizal?igsh=eWZ1Mzc4OXhlbnlk">Instagram</a>
     <a href="https://github.com/irfanfarisf">GitHub</a>
-    <a href="www.linkedin.com/in/irfan-faris-f-159b04365">LinkedIn</a>
+    <a href="https://www.linkedin.com/in/irfan-faris-f-159b04365" target="_blank" rel="noopener">LinkedIn</a>
   </div>
 </footer>
 <div class="cert-modal" id="certModal">
@@ -466,16 +474,8 @@ function revealOnScroll() {
   });
 }
 
-let scrollTicking = false;
-window.addEventListener('scroll', () => {
-  if (!scrollTicking) {
-    requestAnimationFrame(() => {
-      revealOnScroll();
-      scrollTicking = false;
-    });
-    scrollTicking = true;
-  }
-});
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('resize', revealOnScroll);
 
 revealOnScroll(); // run once immediately for content already in view on load
 
