@@ -537,7 +537,15 @@ function revealOnScroll() {
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('resize', revealOnScroll);
 
-revealOnScroll(); // run once immediately for content already in view on load
+// Checks positions every frame regardless of *why* the page scrolled, and
+// stops on its own once every .reveal element has been shown.
+function revealLoop(){
+  revealOnScroll();
+  if (document.querySelectorAll('.reveal:not(.visible)').length > 0){
+    requestAnimationFrame(revealLoop);
+  }
+}
+revealLoop();
 
 // ---------- achievement cards: tap/click to expand (hover handles desktop) ----------
 document.querySelectorAll('.ach-item').forEach(item => {
