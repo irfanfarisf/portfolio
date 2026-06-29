@@ -44,12 +44,17 @@
 
   function revealOnScroll() {
     revealItems.forEach(item => {
-      if (item.classList.contains('visible')) return; // already shown, skip
       const rect = item.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.9) {
+      // visible if it's scrolled far enough up AND hasn't scrolled fully past the top
+      const shouldShow = rect.top < window.innerHeight * 0.9 && rect.bottom > 0;
+      const isVisible = item.classList.contains('visible');
+
+      if (shouldShow && !isVisible) {
         item.classList.add('visible');
         const counter = item.querySelector('.stat-number');
         if (counter) animateCounter(counter);
+      } else if (!shouldShow && isVisible) {
+        item.classList.remove('visible'); // fades back out, ready to replay later
       }
     });
   }
