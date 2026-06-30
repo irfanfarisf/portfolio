@@ -187,3 +187,74 @@
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeCertModal();
   });
+
+  // ---------- SGPA trend chart (SVG, no library) ----------
+  (function renderSgpaChart(){
+    const container = document.getElementById('sgpaChart');
+    if (!container) return;
+
+    // sem number -> SGPA, or null if not yet completed
+    const data = [
+      { sem: 'S1', sgpa: 9.58 },
+      { sem: 'S2', sgpa: 8.91 },
+      { sem: 'S3', sgpa: null },
+      { sem: 'S4', sgpa: null },
+      { sem: 'S5', sgpa: null },
+      { sem: 'S6', sgpa: null },
+      { sem: 'S7', sgpa: null },
+      { sem: 'S8', sgpa: null }
+    ];
+
+    const w = 560, h = 190, padL = 32, padR = 16, padT = 18, padB = 30;
+    const yMin = 6, yMax = 10;
+    const plotW = w - padL - padR;
+    const plotH = h - padT - padB;
+
+    const x = i => padL + (i / (data.length - 1)) * plotW;
+    const y = v => padT + plotH - ((v - yMin) / (yMax - yMin)) * plotH;
+
+    let gridLines = '';
+    for (let g = yMin; g <= yMax; g++){
+      const gy = y(g);
+      gridLines += `<line x1="${padL}" y1="${gy}" x2="${w - padR}" y2="${gy}" stroke="var(--border)" stroke-width="1"/>`;
+      gridLines += `<text x="${padL - 8}" y="${gy + 4}" text-anchor="end" class="sgpa-label">${g}</text>`;
+    }
+
+    const known = data.filter(d => d.sgpa !== null);
+    const linePath = known.map((d, i) => {
+      const idx = data.indexOf(d);
+      return `${i === 0 ? 'M' : 'L'} ${x(idx)} ${y(d.sgpa)}`;
+    }).join(' ');
+
+    let dashedExtension = '';
+    if (known.length){
+      const lastKnownIdx = data.indexOf(known[known.length - 1]);
+      if (lastKnownIdx < data.length - 1){
+        dashedExtension = `<line x1="${x(lastKnownIdx)}" y1="${y(known[known.length-1].sgpa)}" x2="${x(data.length-1)}" y2="${y(known[known.length-1].sgpa)}" stroke="var(--slate)" stroke-width="1.5" stroke-dasharray="4 4"/>`;
+      }
+    }
+
+    let points = '';
+    let xLabels = '';
+    data.forEach((d, i) => {
+      xLabels += `<text x="${x(i)}" y="${h - 10}" text-anchor="middle" class="sgpa-label">${d.sem}</text>`;
+      if (d.sgpa !== null){
+        points += `
+          <g class="sgpa-point">
+            <circle cx="${x(i)}" cy="${y(d.sgpa)}" r="5" fill="var(--void)" stroke="var(--signal)" stroke-width="2"/>
+            <text x="${x(i)}" y="${y(d.sgpa) - 14}" text-anchor="middle" class="sgpa-value">${d.sgpa.toFixed(2)}</text>
+          </g>`;
+      } else {
+        points += `<circle cx="${x(i)}" cy="${y(8)}" r="4" fill="var(--ink)" stroke="var(--slate)" stroke-width="1.5" stroke-dasharray="2 2"/>`;
+      }
+    });
+
+    container.innerHTML = `
+      <svg viewBox="0 0 ${w} ${h}" xmlns="http://www.w3.org/2000/svg">
+        ${gridLines}
+        ${dashedExtension}
+        <path d="${linePath}" fill="none" stroke="var(--signal)" stroke-width="2.5"/>
+        ${points}
+        ${xLabels}
+      </svg>`;
+  })();

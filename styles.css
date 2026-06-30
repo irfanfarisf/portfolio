@@ -321,3 +321,37 @@
     .about-grid{ grid-template-columns:1fr; }
     section{ padding:4rem 5%; }
   }
+
+  /* ---- Academics: SGPA chart + placeholder/badge styling ---- */
+  .sgpa-chart-wrap{
+    background:var(--ink); border:1px solid var(--border); border-radius:14px;
+    padding:1.2rem 1.2rem 0.4rem; margin-bottom:2.5rem;
+    max-width:560px;
+  }
+  #sgpaChart svg{ width:100%; max-height:180px; height:auto; display:block; }
+  .sgpa-point{ cursor:pointer; }
+  .sgpa-point circle{ transition:r 0.2s; }
+  .sgpa-point:hover circle{ r:7; }
+  .sgpa-label{ font-family:'JetBrains Mono', monospace; font-size:11px; fill:var(--slate); }
+  .sgpa-value{ font-family:'JetBrains Mono', monospace; font-size:12px; fill:var(--signal); font-weight:600; }
+
+  .sgpa-badge{
+    font-family:'JetBrains Mono', monospace; font-size:0.75rem;
+    color:var(--signal); border:1px solid var(--signal); border-radius:999px;
+    padding:0.15rem 0.6rem; margin-left:0.6rem; vertical-align:middle;
+  }
+  .sgpa-badge.pending{ color:var(--slate); border-color:var(--border); }
+
+  .ach-item.placeholder{ opacity:0.55; }
+  .ach-item.placeholder:hover{ opacity:0.85; }
+  .ach-item.placeholder .ach-desc{ font-style:italic; }
+
+  @media (max-width: 480px){
+    .sgpa-chart-wrap{ padding:1rem 0.75rem 0.25rem; }
+    .sgpa-label{ font-size:9px; }
+    .sgpa-value{ font-size:10px; }
+    #academics .ach-header{ flex-wrap:wrap; gap:0.3rem 0; }
+    #academics .ach-header h4{ flex-basis:100%; }
+    #academics .ach-header span{ margin-left:0; }
+    .sgpa-badge{ font-size:0.68rem; padding:0.12rem 0.5rem; }
+  }
