@@ -196,7 +196,7 @@
     // sem number -> SGPA, or null if not yet completed
     const data = [
       { sem: 'S1', sgpa: 9.58 },
-      { sem: 'S2', sgpa: 8.91 },
+      { sem: 'S2', sgpa: 9.32 },
       { sem: 'S3', sgpa: null },
       { sem: 'S4', sgpa: null },
       { sem: 'S5', sgpa: null },
