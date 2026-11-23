@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">ViralClip AI</title>
+  <desc id="desc">Illustrated 9:16 AI vertical video studio with highlight detection, animated subtitles, and GPU export.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1">
+      <stop stop-color="#0d111a"/>
+      <stop offset="1" stop-color="#191e2f"/>
+    </linearGradient>
+    <linearGradient id="accent" x2="1">
+      <stop stop-color="#7c5cff"/>
+      <stop offset="1" stop-color="#38bdf8"/>
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop stop-color="#1f2942"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Outer Frame -->
+  <rect width="960" height="540" rx="28" fill="url(#bg)"/>
+  <rect x="36" y="36" width="888" height="468" rx="20" fill="#121724" stroke="#2c354d" stroke-width="2"/>
+
+  <!-- Left Sidebar -->
+  <rect x="36" y="36" width="196" height="468" rx="20" fill="#161c2c"/>
+  <rect x="56" y="64" width="34" height="34" rx="10" fill="url(#accent)"/>
+  <polygon points="69,73 69,89 82,81" fill="#ffffff"/>
+  <text x="102" y="87" fill="#f3f6fc" font-family="Arial,sans-serif" font-size="17" font-weight="700">ViralClip AI</text>
+
+  <rect x="56" y="122" width="156" height="40" rx="10" fill="#232c45"/>
+  <text x="74" y="147" fill="#7dd3fc" font-family="Arial,sans-serif" font-size="14" font-weight="700">Clip Editor</text>
+  <text x="74" y="196" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">AI Highlights</text>
+  <text x="74" y="238" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">Whisper Subs</text>
+  <text x="74" y="280" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">Smart Crop</text>
+  <text x="74" y="322" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">GPU Exports</text>
+
+  <rect x="56" y="424" width="156" height="54" rx="12" fill="#1d2538" stroke="#2f3b57"/>
+  <text x="72" y="447" fill="#a78bfa" font-family="Arial,sans-serif" font-size="12" font-weight="700">NVENC / QSV / AMF</text>
+  <text x="72" y="466" fill="#94a3b8" font-family="Arial,sans-serif" font-size="12">1080×1920 · 9:16</text>
+
+  <!-- Center 9:16 Vertical Preview Phone -->
+  <rect x="266" y="66" width="214" height="366" rx="22" fill="#0b0f19" stroke="#384463" stroke-width="2"/>
+  <rect x="278" y="78" width="190" height="342" rx="14" fill="url(#screenGrad)"/>
+  <!-- Split Facecam + Gameplay visual -->
+  <rect x="288" y="88" width="170" height="106" rx="10" fill="#263252"/>
+  <circle cx="373" cy="130" r="22" fill="#38bdf8" opacity="0.25"/>
+  <circle cx="373" cy="126" r="13" fill="#7dd3fc"/>
+  <path d="M350 166c5-15 41-15 46 0" fill="#7dd3fc"/>
+  <rect x="288" y="204" width="170" height="156" rx="10" fill="#1c243b"/>
+  <polygon points="356,262 356,298 388,280" fill="url(#accent)" opacity="0.9"/>
+  <!-- Animated Subtitle Pill -->
+  <rect x="296" y="366" width="154" height="36" rx="8" fill="#0f172a" stroke="#7c5cff" stroke-width="1.5"/>
+  <text x="373" y="389" text-anchor="middle" fill="#fde047" font-family="Arial,sans-serif" font-size="14" font-weight="700">CLUTCH MOMENT!</text>
+
+  <!-- Right Panel: AI Highlights & Controls -->
+  <text x="514" y="92" fill="#f3f6fc" font-family="Arial,sans-serif" font-size="22" font-weight="700">AI Highlight Studio</text>
+  <text x="514" y="118" fill="#94a3b8" font-family="Arial,sans-serif" font-size="14">Faster-Whisper · OpenCV · FFmpeg</text>
+
+  <!-- Highlight Card 1 -->
+  <rect x="514" y="140" width="374" height="78" rx="14" fill="#1a2236" stroke="#7c5cff" stroke-width="1.5"/>
+  <text x="534" y="170" fill="#f3f6fc" font-family="Arial,sans-serif" font-size="16" font-weight="700">Clip #1 · Insane 1v4 Clutch</text>
+  <text x="534" y="196" fill="#94a3b8" font-family="Arial,sans-serif" font-size="13">00:14:22 — 00:14:58 · 36s · Animated .ASS</text>
+  <rect x="804" y="156" width="66" height="28" rx="8" fill="#2e2359"/>
+  <text x="837" y="175" text-anchor="middle" fill="#c4b5fd" font-family="Arial,sans-serif" font-size="13" font-weight="700">96%</text>
+
+  <!-- Highlight Card 2 -->
+  <rect x="514" y="232" width="374" height="74" rx="14" fill="#182032" stroke="#2c3752"/>
+  <text x="534" y="261" fill="#e2e8f0" font-family="Arial,sans-serif" font-size="15" font-weight="700">Clip #2 · Post-Match Reaction</text>
+  <text x="534" y="285" fill="#94a3b8" font-family="Arial,sans-serif" font-size="13">00:38:10 — 00:38:44 · 34s · Multi-lang</text>
+  <rect x="804" y="248" width="66" height="28" rx="8" fill="#1f3547"/>
+  <text x="837" y="267" text-anchor="middle" fill="#7dd3fc" font-family="Arial,sans-serif" font-size="13" font-weight="700">89%</text>
+
+  <!-- Export Progress Card -->
+  <rect x="514" y="322" width="374" height="110" rx="14" fill="#182032" stroke="#2c3752"/>
+  <text x="534" y="352" fill="#f3f6fc" font-family="Arial,sans-serif" font-size="15" font-weight="700">Export Pipeline · 9:16 H.264 / AAC</text>
+  <text x="534" y="376" fill="#94a3b8" font-family="Arial,sans-serif" font-size="13">Smart Facecam Framing + Word-Level Subtitles</text>
+  <rect x="534" y="396" width="334" height="10" rx="5" fill="#26314a"/>
+  <rect x="534" y="396" width="276" height="10" rx="5" fill="url(#accent)"/>
+
+  <!-- Bottom Timeline Scrubber -->
+  <rect x="266" y="448" width="622" height="32" rx="8" fill="#182032" stroke="#2c3752"/>
+  <rect x="332" y="454" width="196" height="20" rx="5" fill="url(#accent)" opacity="0.35" stroke="#7c5cff"/>
+  <line x1="418" y1="448" x2="418" y2="480" stroke="#38bdf8" stroke-width="2.5"/>
+</svg>
