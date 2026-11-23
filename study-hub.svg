@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">KTU S3 Study Hub</title>
+  <desc id="desc">Illustrated dashboard with semester subjects, study resources, and progress indicators.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#101923"/><stop offset="1" stop-color="#202e3b"/></linearGradient>
+    <linearGradient id="accent" x2="1"><stop stop-color="#57d7bb"/><stop offset="1" stop-color="#85e6ce"/></linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="28" fill="url(#bg)"/>
+  <rect x="36" y="36" width="888" height="468" rx="20" fill="#131e29" stroke="#33424e" stroke-width="2"/>
+  <rect x="36" y="36" width="190" height="468" rx="20" fill="#182633"/>
+  <circle cx="74" cy="83" r="18" fill="url(#accent)"/><path d="M67 83h14M74 76v14" stroke="#10211f" stroke-width="3" stroke-linecap="round"/>
+  <text x="104" y="89" fill="#f2f7f8" font-family="Arial,sans-serif" font-size="18" font-weight="700">STUDY HUB</text>
+  <rect x="56" y="129" width="150" height="42" rx="10" fill="#263b48"/><text x="75" y="156" fill="#82e4cf" font-family="Arial,sans-serif" font-size="16">Dashboard</text>
+  <text x="75" y="208" fill="#9cacb8" font-family="Arial,sans-serif" font-size="15">Subjects</text><text x="75" y="252" fill="#9cacb8" font-family="Arial,sans-serif" font-size="15">Question Bank</text><text x="75" y="296" fill="#9cacb8" font-family="Arial,sans-serif" font-size="15">Quick Revision</text>
+  <text x="258" y="96" fill="#f2f7f8" font-family="Arial,sans-serif" font-size="28" font-weight="700">Your semester, organized.</text>
+  <text x="258" y="126" fill="#9cacb8" font-family="Arial,sans-serif" font-size="16">KTU · Semester 3</text>
+  <rect x="258" y="153" width="626" height="78" rx="14" fill="#1b2b37" stroke="#344752"/>
+  <text x="282" y="186" fill="#f2f7f8" font-family="Arial,sans-serif" font-size="18" font-weight="700">Continue your learning</text><text x="282" y="210" fill="#9cacb8" font-family="Arial,sans-serif" font-size="14">Track topics and pick up where you left off</text>
+  <rect x="258" y="253" width="194" height="206" rx="14" fill="#1b2b37" stroke="#344752"/><rect x="469" y="253" width="194" height="206" rx="14" fill="#1b2b37" stroke="#344752"/><rect x="680" y="253" width="204" height="206" rx="14" fill="#1b2b37" stroke="#344752"/>
+  <circle cx="294" cy="291" r="17" fill="#285248"/><text x="287" y="297" fill="#85e6ce" font-family="Arial,sans-serif" font-size="16" font-weight="700">01</text><text x="282" y="336" fill="#f2f7f8" font-family="Arial,sans-serif" font-size="17" font-weight="700">Mathematics</text><text x="282" y="363" fill="#9cacb8" font-family="Arial,sans-serif" font-size="14">Modules · Notes · PYQs</text><rect x="282" y="397" width="144" height="7" rx="4" fill="#354650"/><rect x="282" y="397" width="94" height="7" rx="4" fill="url(#accent)"/>
+  <circle cx="505" cy="291" r="17" fill="#3b3d5b"/><text x="498" y="297" fill="#b7b6ff" font-family="Arial,sans-serif" font-size="16" font-weight="700">02</text><text x="493" y="336" fill="#f2f7f8" font-family="Arial,sans-serif" font-size="17" font-weight="700">Electronics</text><text x="493" y="363" fill="#9cacb8" font-family="Arial,sans-serif" font-size="14">Modules · Notes · PYQs</text><rect x="493" y="397" width="144" height="7" rx="4" fill="#354650"/><rect x="493" y="397" width="61" height="7" rx="4" fill="#aaa8f4"/>
+  <circle cx="716" cy="291" r="17" fill="#514334"/><text x="709" y="297" fill="#f2bf7d" font-family="Arial,sans-serif" font-size="16" font-weight="700">03</text><text x="704" y="336" fill="#f2f7f8" font-family="Arial,sans-serif" font-size="17" font-weight="700">Programming</text><text x="704" y="363" fill="#9cacb8" font-family="Arial,sans-serif" font-size="14">Modules · Notes · PYQs</text><rect x="704" y="397" width="156" height="7" rx="4" fill="#354650"/><rect x="704" y="397" width="127" height="7" rx="4" fill="#f2bf7d"/>
+</svg>

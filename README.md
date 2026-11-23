@@ -14,6 +14,7 @@ Personal portfolio website for **Irfan Faris F**, a second-year B.Tech Computer 
 - **Skills** — tech and soft-skill tags with icons (Python, JavaScript, HTML, CSS, C, Problem Solving, Leadership).
 - **Work** — project cards with description, tech stack, and Live/GitHub links:
   - Portfolio (this site)
+  - KTU S3 Study Hub
   - Assignment Tracker
   - Pookalam Designer
 - **Achievements** — milestone cards (certifications, scholarships, competition prizes) with a "show certificate" image modal.
@@ -78,6 +79,7 @@ portfolio/
 ├── portfolio.png      # Project One preview image
 ├── prj2.png           # Assignment Tracker preview image
 ├── pookalam.png        # Pookalam Designer preview image
+├── study-hub.svg        # KTU S3 Study Hub preview illustration
 ├── resume.pdf           # Downloadable resume
 └── *.jpg / *.png          # Certificate & grade-card images used in modals
 ```
